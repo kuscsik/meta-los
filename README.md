@@ -16,30 +16,39 @@ revision: HEAD
 
 ```
 URI: git://git.openembedded.org/bitbake
-layers: meta
 branch: master
 revision: HEAD
 ```
 
 ```
 URI: git://git.openembedded.org/meta-openembedded
-layers: meta
+layers: meta-filesystems, meta-gnome, meta-multimedia, 
+        meta-oe, meta-systemd, ...
 branch: master
 revision: HEAD
 ```
 
 ```
 URI: https://github.com/ndechesne/meta-qcomm.git
-layers: meta
+layers: meta-qcomm
 branch: jethro
 revision: HEAD
 ```
+
+```
+URI: https://github.com/linaro-home/meta-browser.git
+layers: meta-browser
+branch: chromium_45
+revision: HEAD
+```
+
+
 
 This layer:
 
 ```
 URI: https://github.com/cpriouzeau/meta-los.git
-layers: meta
+layers: meta-los
 branch: master
 revision: HEAD
 ```
