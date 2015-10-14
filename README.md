@@ -40,7 +40,7 @@ revision: HEAD
 source ./meta-los/script/envsetup
 bitbake los-weston-image
 
-## Waning
+## Warning
 To get the firmware of Qualcomm dragonboard, you need to accept the EULA.
 For accepting it, we have added the following line on local.conf:
 ACCEPT_QCOM_EULA = "1"
