@@ -50,11 +50,11 @@ oe_get_git_meta_openemebedded() {
     fi
 }
 
-# get meta-qualcomm
-oe_get_git_meta_qualcomm() {
-    if [ ! -d meta-qualcomm ];
+# get meta-qcom
+oe_get_git_meta_qcom() {
+    if [ ! -d meta-qcom ];
     then
-        git clone https://github.com/ndechesne/meta-qcomm.git
+        git clone https://github.com/ndechesne/meta-qcom.git
         git checkout -b jethro origin/jethro
     fi
 }
@@ -86,5 +86,5 @@ oe_get_git_openemebedded
 oe_get_git_bitbake
 oe_get_git_meta_openemebedded
 oe_get_git_meta_browser
-oe_get_git_meta_qualcomm
+oe_get_git_meta_qcom
 
