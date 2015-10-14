@@ -35,6 +35,15 @@ branch: jethro
 revision: HEAD
 ```
 
+This layer:
+
+```
+URI: https://github.com/cpriouzeau/meta-los.git
+layers: meta
+branch: master
+revision: HEAD
+```
+
 ## how to setup environment
 
 source ./meta-los/script/envsetup
