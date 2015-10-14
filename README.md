@@ -29,7 +29,7 @@ revision: HEAD
 ```
 
 ```
-URI: https://github.com/ndechesne/meta-qualcomm.git
+URI: https://github.com/ndechesne/meta-qcomm.git
 layers: meta
 branch: jethro
 revision: HEAD

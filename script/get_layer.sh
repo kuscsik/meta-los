@@ -54,7 +54,7 @@ oe_get_git_meta_openemebedded() {
 oe_get_git_meta_qualcomm() {
     if [ ! -d meta-qualcomm ];
     then
-        git clone https://github.com/ndechesne/meta-qualcomm.git
+        git clone https://github.com/ndechesne/meta-qcomm.git
         git checkout -b jethro origin/jethro
     fi
 }
