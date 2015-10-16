@@ -14,10 +14,10 @@ SRC_URI += " file://weston.service \
 
 FILES_${PN} = "\
     /tmp/xdg_runtime_dir \
-    /home/root/.config/weston.ini \
-    /home/root/icon/utilities-terminal.png \
-    /home/root/icon/chromium-browser.png \
-    /home/root/wallpaper_1920x1080.png "
+    /usr/share/weston/weston.ini \
+    /usr/share/weston/icon/utilities-terminal.png \
+    /usr/share/weston/icon/chromium-browser.png \
+    /usr/share/weston/wallpaper_linaro_1920x1080.png "
 
 FILES_${PN} += "/lib/systemd/system/weston.service \
             /usr/sbin/weston.sh \
@@ -25,13 +25,12 @@ FILES_${PN} += "/lib/systemd/system/weston.service \
             /etc/profile.d/"
 
 do_install() {
-  install -d 0700 ${D}/tmp/xdg_runtime_dir
-  install -d ${D}/home/root/.config
-  install -d ${D}/home/root/icon
-  install -m 0644 ${WORKDIR}/weston.ini ${D}/home/root/.config/weston.ini
-  install -m 0644 ${WORKDIR}/utilities-terminal.png ${D}/home/root/icon/utilities-terminal.png
-  install -m 0644 ${WORKDIR}/chromium-browser.png ${D}/home/root/icon/chromium-browser.png
-  install -m 0644 ${WORKDIR}/wallpaper_1920x1080.png ${D}/home/root/wallpaper_1920x1080.png
+  install -d ${D}/usr/share/weston
+  install -d ${D}/usr/share/weston/icon
+  install -m 0644 ${WORKDIR}/weston.ini ${D}/usr/share/weston/weston.ini
+  install -m 0644 ${WORKDIR}/utilities-terminal.png ${D}/usr/share/weston/icon/utilities-terminal.png
+  install -m 0644 ${WORKDIR}/chromium-browser.png ${D}/usr/share/weston/icon/chromium-browser.png
+  install -m 0644 ${WORKDIR}/wallpaper_1920x1080.png ${D}/usr/share/weston/wallpaper_linaro_1920x1080.png
 
   install -d ${D}/lib/systemd/system/ ${D}/usr/sbin
   install -m 0644 ${WORKDIR}/weston.service ${D}/lib/systemd/system/
