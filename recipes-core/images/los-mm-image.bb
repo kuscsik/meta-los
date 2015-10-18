@@ -24,18 +24,9 @@ IMAGE_AUDIO_PART = " \
     alsa-utils \
 "
 
-#
-#
-#
-IMAGE_BROWSER = " \
-    libexif \
-    chromium \
-"
-
 IMAGE_INSTALL += " \
     ${IMAGE_MM_PART} \
     ${IMAGE_AUDIO_PART} \
-    ${IMAGE_BROWSER} \
 "
 include recipes-core/images/los-weston-image.bb
 
