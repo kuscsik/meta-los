@@ -1,0 +1,19 @@
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index a511d28..f38bdd5 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -29,12 +29,13 @@ AM_CFLAGS = \
+ 
+ LDADD = $(top_builddir)/libdrm.la
+ 
+-check_PROGRAMS = \
++bin_PROGRAMS = \
+ 	dristat \
+ 	drmstat
+ 
+ dristat_LDADD = -lm
+ 
++check_PROGRAMS =
+ if HAVE_NOUVEAU
+ SUBDIRS += nouveau
+ endif
