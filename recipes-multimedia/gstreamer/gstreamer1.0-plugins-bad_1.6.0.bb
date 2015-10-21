@@ -12,4 +12,5 @@ SRC_URI[sha256sum] = "d8ff26128d4ecd2ffeb28e14843808d2d971b09056b7cee6f08afcae01
 
 S = "${WORKDIR}/gst-plugins-bad-${PV}"
 
+RDEPENDS_${PN}-dtls += "openssl"
 
