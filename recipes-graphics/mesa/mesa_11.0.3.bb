@@ -11,4 +11,19 @@ do_install_append() {
     if ${@bb.utils.contains('PACKAGECONFIG', 'egl', 'true', 'false', d)}; then
         sed -i -e 's/^#if defined(MESA_EGL_NO_X11_HEADERS)$/#if defined(MESA_EGL_NO_X11_HEADERS) || ${@bb.utils.contains('PACKAGECONFIG', 'x11', '0', '1', d)}/' ${D}${includedir}/EGL/eglplatform.h
     fi
+
+    # Workarounds for Hikey board
+
+    #remove EGL
+    rm -f ${D}/${libdir}/libEGL*
+    #remove GLESv1
+    rm -f ${D}/${libdir}/libGLESv1_CM.*
+    #remove GLESv2
+    rm -f ${D}/${libdir}/libGLESv2.*
+    rm -f ${D}/${libdir}/libgbm*
+    rm -f ${D}/${libdir}/libwayland-egl*
+
 }
+
+
+PROVIDES_remove = "virtual/libgles1 virtual/libgles2 virtual/egl"
