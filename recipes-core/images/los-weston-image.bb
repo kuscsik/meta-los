@@ -19,7 +19,6 @@ IMAGE_DISPLAY_PART = " \
     weston \
     weston-init \
     weston-cfg-systemd \
-    kmscon \
 "
 
 IMAGE_EXAMPLES_PART = "\
