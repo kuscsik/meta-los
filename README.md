@@ -96,6 +96,11 @@ Build the image:
 
 ```
 $ source ./meta-los/script/envsetup
+```
+
+Edit the conf/local.conf file and change the MACHINE value to "hikey". 
+
+```
 $ bitbake los-weston-image
 ```
 

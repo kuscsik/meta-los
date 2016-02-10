@@ -14,6 +14,7 @@ REQUIRED_DISTRO_FEATURES = "wayland pam systemd"
 # Display part addons
 #
 IMAGE_DISPLAY_PART = " \
+    mali450-userland-drm \
     libdrm \
     libdrm-tests \
     weston \
