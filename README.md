@@ -80,16 +80,36 @@ Checkout the hikey branch of the project:
 
 https://github.com/kuscsik/meta-96boards
 
+
+Get the graphics drivers from here 
+
+
+https://drive.google.com/a/linaro.org/file/d/0B8Uq4Q7WAxO4ZjJLdGJQR01DRkE/view?usp=sharing
+
+and place the tar package in the following folder:
+
+```
+~/Public/oe-downloads/
+```
+
+Build the image:
+
+```
 $ source ./meta-los/script/envsetup
 $ bitbake los-weston-image
+```
 
 Convert the ext4 image to a fastboot sparse image
 
+```
 $ ext2simg los-weston-image-hikey.ext4 los-weston-image-hikey.img
+```
 
 and flash it using fastboot
 
+```
 $ fastboot flash system los-weston-image-hikey.img
+```
 
 Get the boot-fat.uefi.img.gz from here:
 
@@ -97,12 +117,14 @@ https://builds.96boards.org/snapshots/hikey/linaro/debian/latest/https://builds.
 
 And replace the default grub.cfg with the one from meta-los:
 
+```
 $ mkdir -p boot-fat
 $ sudo mount -o loop,rw,sync boot-fat.uefi.img boot-fat
 $ cp conf/grub.cfg boot-fat/EFI/BOOT/
 $ sync
 $ sudo umount boot-fat.uefi.img
 $ fastboot flash boot boot-fat.uefi.img
+```
 
 Important: Don't forget to unplug the OTG cable after flashing is done and connect a mouse/keyboard
 to the board. Remove any SD card if present.
