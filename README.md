@@ -73,3 +73,42 @@ git clone https://github.com/cpriouzeau/meta-los.git
 source ./meta-los/script/envsetup
 bitbake los-weston-image
 
+
+## Hikey instructions
+
+Checkout the hikey branch of the project:
+
+https://github.com/kuscsik/meta-96boards
+
+$ source ./meta-los/script/envsetup
+$ bitbake los-weston-image
+
+Convert the ext4 image to a fastboot sparse image
+
+$ ext2simg los-weston-image-hikey.ext4 los-weston-image-hikey.img
+
+and flash it using fastboot
+
+$ fastboot flash system los-weston-image-hikey.img
+
+Get the boot-fat.uefi.img.gz from here:
+
+https://builds.96boards.org/snapshots/hikey/linaro/debian/latest/https://builds.96boards.org/snapshots/hikey/linaro/debian/latest/ 
+
+And replace the default grub.cfg with the one from meta-los:
+
+$ mkdir -p boot-fat
+$ sudo mount -o loop,rw,sync boot-fat.uefi.img boot-fat
+$ cp conf/grub.cfg boot-fat/EFI/BOOT/
+$ sync
+$ sudo umount boot-fat.uefi.img
+$ fastboot flash boot boot-fat.uefi.img
+
+Important: Don't forget to unplug the OTG cable after flashing is done and connect a mouse/keyboard
+to the board. Remove any SD card if present.
+
+The grub.cfg is configured to 1920x1080@25 resolution, if that doesn't works for you for some reason,
+try to edit the file and set it to a safe 800x600@60 resolution first.
+
+Reboot.
+
