@@ -3,16 +3,13 @@ DESCRIPTION = "Mali400 libraries (opengles, egl...)"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=6b6d38be6224fa5948bf814d28cc2197"
 
-PROVIDES = "mali400-userland virtual/egl virtual/libgles1 virtual/libgles2"
+PROVIDES = "mali450-userland virtual/egl virtual/libgles1 virtual/libgles2"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "libdrm"
 
-#------------------
 PV_MALI="r6p0"
 PR_MALI="01rel0"
-MALI_USERLAND_FB_TARBALL_DATE= "20141201111628"
-#------------------
 
 PR="${PR_MALI}.binary"
 
@@ -53,14 +50,14 @@ RCONFLICTS_${PN}      = "libglesv2-2 "
 
 
 # For the packages that make up the OpenGL interfaces, inject variables so that
-# they don't get Debian-renamed (which would remove the -mali400 suffix), and
+# they don't get Debian-renamed (which would remove the -mali450 suffix), and
 # RPROVIDEs/RCONFLICTs on the generic libgl name.
 python __anonymous() {
     pkgconfig = (d.getVar('PACKAGECONFIG', True) or "").split()
     for p in (("libegl"), ("libegl1"),
               ("gles"), ("libgles1"), ("libglesv1-cm1"),
-              ("libgles2"), ("mali400-userland")):
-        fullp = "mali400-userland"
+              ("libgles2"), ("mali450-userland")):
+        fullp = "mali450-userland"
         pkgs = " "  + p + " "
         d.setVar("DEBIAN_NOAUTONAME_" + fullp, "1")
         d.appendVar("RREPLACES_" + fullp, pkgs)
@@ -68,7 +65,7 @@ python __anonymous() {
         d.appendVar("RCONFLICTS_" + fullp, pkgs)
 
         # For -dev, the first element is both the Debian and original name
-        fullp += "mali400-userland-dev"
+        fullp += "mali450-userland-dev"
         pkgs = " "  + p + "-dev "
         d.setVar("DEBIAN_NOAUTONAME_" + fullp, "1")
         d.appendVar("RREPLACES_" + fullp, pkgs)
