@@ -40,6 +40,8 @@ IMAGE_NETWORK_PART = "\
 # INSTALL addons
 #
 IMAGE_INSTALL += " \
+    kernel \
+    kernel-devicetree \
     kernel-modules \
     \
     ${IMAGE_DISPLAY_PART} \
