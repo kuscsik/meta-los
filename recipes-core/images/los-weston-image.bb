@@ -65,6 +65,7 @@ IMAGE_INSTALL += " \
     e2fsprogs-resize2fs \
     e2fsprogs-mke2fs \
     sysstat \
+    ${SECURITY_IMAGE_INSTALL} \
 "
 
 IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs"
