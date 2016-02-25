@@ -1,13 +1,3 @@
-From 8c54eb691cbb6dde5677791e3178404da2df843f Mon Sep 17 00:00:00 2001
-From: Christophe Priouzeau <christophe.priouzeau@linaro.org>
-Date: Fri, 23 Jan 2015 10:09:45 +0100
-Subject: [PATCH] OE: remove the compile choice
-
-Signed-off-by: Christophe Priouzeau <christophe.priouzeau@linaro.org>
----
- host/Makefile | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
-
 diff --git a/host/Makefile b/host/Makefile
 index 2effc43..f740fca 100644
 --- a/host/Makefile
@@ -31,6 +21,25 @@ index 2effc43..f740fca 100644
  
  OBJS = hello_world.o
  
--- 
-1.9.1
-
+diff --git a/ta/Makefile b/ta/Makefile
+index 7c492b5..d45c71b 100644
+--- a/ta/Makefile
++++ b/ta/Makefile
+@@ -1,16 +1,5 @@
+-CFG_TEE_TA_LOG_LEVEL ?= 2
++CFG_TEE_TA_LOG_LEVEL ?= 4
+ CPPFLAGS += -DCFG_TEE_TA_LOG_LEVEL=$(CFG_TEE_TA_LOG_LEVEL)
+ BINARY=8aaaf200-2450-11e4-abe20002a5d5c51b
+ 
+ include $(TA_DEV_KIT_DIR)/mk/ta_dev_kit.mk
+-
+-all: $(BINARY).ta
+-
+-$(BINARY).ta: $(BINARY).bin
+-	rm -f $@
+-	cat faked_armv7_uta_signed_header.bin $< > $@
+-
+-clean: clean_ta_file
+-.PHONY: clean_ta_file
+-clean_ta_file:
+-	rm -f $(BINARY).ta
