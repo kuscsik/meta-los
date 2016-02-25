@@ -32,7 +32,7 @@ do_compile() {
     oe_runmake -C ${S}/host LDFLAGS=""
 
     #compile trusted part, here TA
-    oe_runmake -C ${S}/ta LDFLAGS=""
+    oe_runmake -C ${S}/ta LDFLAGS="" CROSS_COMPILE=${HOST_PREFIX}
 }
 do_install() {
     mkdir -p ${D}/usr/bin
