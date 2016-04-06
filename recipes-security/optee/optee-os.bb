@@ -29,7 +29,7 @@ OPTEE_ARCH_aarch64 = "arm64"
 
 do_compile() {
     unset LDFLAGS
-    oe_runmake all
+    oe_runmake all CFG_TEE_TA_LOG_LEVEL=0
 }
 
 do_install() {
