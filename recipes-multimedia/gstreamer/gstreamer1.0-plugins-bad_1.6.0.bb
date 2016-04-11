@@ -14,4 +14,4 @@ S = "${WORKDIR}/gst-plugins-bad-${PV}"
 
 RDEPENDS_${PN}-dtls += "openssl"
 
-DEPENDS = "virtual/egl"
+DEPENDS += "virtual/egl"
