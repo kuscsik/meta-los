@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=6b6d38be6224fa5948bf814d28cc2197"
 PROVIDES = "mali450-userland virtual/egl virtual/libgles1 virtual/libgles2"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "libdrm"
+DEPENDS = "libdrm mesa"
 
 PV_MALI="r6p0"
 PR_MALI="01rel0"
