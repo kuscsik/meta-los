@@ -13,7 +13,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://github.com/OP-TEE/optee_client.git"
 S = "${WORKDIR}/git"
 
-SRCREV = "0b0d237779de6982451f6f5971b7106e459a2958"
+SRCREV = "fcd1014947e784ca8d618035bcb999f9151096b0"
 
 do_compile() {
     mkdir -p ${D}/usr
