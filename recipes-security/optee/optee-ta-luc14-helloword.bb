@@ -36,16 +36,16 @@ do_compile() {
 }
 do_install() {
     mkdir -p ${D}/usr/bin
-    mkdir -p ${D}/lib/teetz
+    mkdir -p ${D}/lib/optee_armtz
 
     #linux binary
     install -m 544 ${B}/host/hello_world ${D}/usr/bin/optee_hello_work
 
     #ta part
-    install -m 444 ${B}/ta/8aaaf200-2450-11e4-abe20002a5d5c51b.ta ${D}/lib/teetz/
+    install -m 444 ${B}/ta/8aaaf200-2450-11e4-abe20002a5d5c51b.ta ${D}/lib/optee_armtz/
 }
 
-FILES_${PN} = "/usr/bin/ /lib/teetz/"
+FILES_${PN} = "/usr/bin/ /lib/optee_armtz/"
 INSANE_SKIP_${PN}-dev = "staticdev"
 
 INHIBIT_PACKAGE_STRIP = "1"

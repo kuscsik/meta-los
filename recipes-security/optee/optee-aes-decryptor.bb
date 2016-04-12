@@ -31,7 +31,7 @@ do_compile() {
 
 do_install() {
     mkdir -p ${D}/usr/bin
-    mkdir -p ${D}/lib/teetz
+    mkdir -p ${D}/lib/optee_armtz
     install -d ${D}/${libdir}
     install -m 0644 ${S}/host/*.a ${D}/${libdir}/
 
@@ -39,11 +39,11 @@ do_install() {
     install -m 0644 ${S}/host/*.h ${D}${includedir}/
 
     #ta part
-    install -m 444 ${B}/ta/*.ta ${D}/lib/teetz/
+    install -m 444 ${B}/ta/*.ta ${D}/lib/optee_armtz/
 }
 
 
-FILES_${PN} = "${libdir}/*.a  /usr/bin /lib/teetz/"
+FILES_${PN} = "${libdir}/*.a  /usr/bin /lib/optee_armtz/"
 FILES_${PN}-staticdev = "${libdir}/*.a"
 
 INHIBIT_PACKAGE_STRIP = "1"
