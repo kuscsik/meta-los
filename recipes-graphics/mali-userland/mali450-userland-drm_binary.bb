@@ -1,7 +1,10 @@
 SUMMARY = "Mali400 libraries (drm backend)"
 DESCRIPTION = "Mali400 libraries (opengles, egl...)"
 LICENSE = "Proprietary"
-LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=6b6d38be6224fa5948bf814d28cc2197"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/END_USER_LICENCE_AGREEMENT.txt;md5=3918cc9836ad038c5a090a0280233eea"
+
+SRC_URI[md5sum] = "36f39e86ccfe5a6a4cb2090865c339ba"
+SRC_URI[sha256sum] = "dd136931cdbb309c0ce30297c06f7c6b0a48450f51acbbbc10529d341977f728"
 
 PROVIDES = "mali450-userland virtual/egl virtual/libgles1 virtual/libgles2"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -15,10 +18,9 @@ PR="${PR_MALI}.binary"
 
 BACKEND="drm"
 
-MALI_DIRECTORY="mali450-userland-${BACKEND}-${PV_MALI}-${PR_MALI}-release"
-SRC_URI = "file://${MALI_DIRECTORY}.tgz"
+SRC_URI = " http://malideveloper.arm.com/downloads/drivers/binary/utgard/r6p0-01rel0/mali-450_r6p0-01rel0_linux_1+arm64.tar.gz;destsuffix=mali"
 
-S = "${WORKDIR}/${MALI_DIRECTORY}"
+S = "${WORKDIR}/wayland-drm"
 
 #action stubbed
 do_configure[noexec] = "1"
@@ -26,8 +28,8 @@ do_compile[noexec] = "1"
 
 
 do_install() {
-    install -m 755 -d ${D}/usr/
-    cp -aR ${S}/usr ${D}/
+    install -m 755 -d ${D}/usr/lib
+    cp -aR ${S}/* ${D}/usr/lib
 }
 
 PACKAGES = "${PN} ${PN}-dev ${PN}-dbg ${PN}-test "
@@ -72,4 +74,6 @@ python __anonymous() {
         d.appendVar("RPROVIDES_" + fullp, pkgs)
         d.appendVar("RCONFLICTS_" + fullp, pkgs)
 }
+
+INSANE_SKIP_${PN} = "ldflags"
 
