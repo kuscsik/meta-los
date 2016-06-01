@@ -75,5 +75,5 @@ python __anonymous() {
         d.appendVar("RCONFLICTS_" + fullp, pkgs)
 }
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN} += "ldflags"
 
